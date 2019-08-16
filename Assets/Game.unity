@@ -337,8 +337,8 @@ GameObject:
   - component: {fileID: 94109716}
   - component: {fileID: 94109715}
   - component: {fileID: 94109714}
-  - component: {fileID: 94109717}
   - component: {fileID: 94109718}
+  - component: {fileID: 94109717}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -374,7 +374,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 2000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -420,15 +420,15 @@ MonoBehaviour:
   mapObject: {fileID: 600629567}
   controlTransformation: 0
   controlNearFar: 0
-  Config: '{ "traverseModeSurfaces":3, "traverseModeGeodata":0, "maxTexelToPixelScale":1.2
-    }'
+  Config: '{ "traverseModeSurfaces":3, "traverseModeGeodata":0, "maxTexelToPixelScale":1.2,
+    "cullingOffsetDistance":100 }'
   Statistics: This will show statistics at play
   atmosphere: 0
   backgroundMaterial: {fileID: 2100000, guid: 3e83f2df2a270e94ca3c325a39ebd735, type: 2}
   backgroundMesh: {fileID: 4300000, guid: b0f11f207ae451f49bddfbaf9690e9cb, type: 3}
-  opaquePrefab: {fileID: 1447127621452838, guid: 779f27748c9c8e3459d24dc2c8868619,
+  opaquePrefab: {fileID: 1447127621452838, guid: 95491ddca0cffc840b16825222ebd05b,
     type: 2}
-  transparentPrefab: {fileID: 1447127621452838, guid: 988ee46100bc29d4c9cd5d8257c2bd1b,
+  transparentPrefab: {fileID: 1447127621452838, guid: a396368289a81bc4b9f84dc947ef046f,
     type: 2}
   renderLayer: 31
 --- !u!114 &94109718
@@ -595,10 +595,6 @@ MonoBehaviour:
   axisRoll: 0
   axisYaw: 0
   axisThrottle: 0
-  yawStabPid:
-    pFactor: 0
-    iFactor: 0
-    dFactor: 0
 --- !u!114 &420934782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,9 +628,11 @@ MonoBehaviour:
   pitch: 0
   yaw: 0
   roll: 0
+  altitude: 0
   pitchRate: 0
   yawRate: 0
   rollRate: 0
+  altitudeRate: 0
 --- !u!1 &598795290
 GameObject:
   m_ObjectHideFlags: 0

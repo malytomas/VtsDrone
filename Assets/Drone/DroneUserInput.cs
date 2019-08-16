@@ -23,7 +23,12 @@ public class DroneUserInput : MonoBehaviour
         if (Input.GetButtonDown("Acrobatic"))
             dc.acrobaticMode = !dc.acrobaticMode;
 
-        if (Input.GetButtonDown("Reset"))
+        if (Input.GetButtonDown("Restart"))
+        {
+            transform.position = Vector3.zero;
+        }
+
+        if (Input.GetButtonDown("Realign") || Input.GetButtonDown("Restart"))
         {
             transform.rotation = Quaternion.identity;
             rigidbody.rotation = Quaternion.identity;

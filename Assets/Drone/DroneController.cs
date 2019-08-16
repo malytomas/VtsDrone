@@ -18,7 +18,7 @@ public class DroneController : MonoBehaviour
     protected PID rollStabPid;
     protected PID yawStabPid;
     protected float yaw = 0;
-    public PID altitudeStabPid;
+    protected PID altitudeStabPid;
 
     private DroneMotors dm;
     private DroneSensors ds;
