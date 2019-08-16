@@ -530,8 +530,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420934775}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 0.01
+  m_Mass: 2
+  m_Drag: 0.1
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -592,9 +592,13 @@ MonoBehaviour:
   acrobaticMode: 0
   armed: 0
   axisPitch: 0
-  axisYaw: 0
   axisRoll: 0
+  axisYaw: 0
   axisThrottle: 0
+  yawStabPid:
+    pFactor: 0
+    iFactor: 0
+    dFactor: 0
 --- !u!114 &420934782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,8 +615,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  forcePerThrottle: 20
-  torquePerThrottle: 20
+  forcePerThrottle: 10
+  torquePerThrottle: 10
   rotationsPerThrottle: 1000
 --- !u!114 &420934783
 MonoBehaviour:

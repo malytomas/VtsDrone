@@ -5,23 +5,34 @@ public class DroneController : MonoBehaviour
     public bool acrobaticMode = false;
     public bool armed = false;
     public float axisPitch = 0;
-    public float axisYaw = 0;
     public float axisRoll = 0;
+    public float axisYaw = 0;
     public float axisThrottle = 0;
 
-    protected PID pitch;
-    protected PID yaw;
-    protected PID roll;
+    protected PID pitchRatePid;
+    protected PID rollRatePid;
+    protected PID yawRatePid;
     protected float throttle = 0;
+
+    protected PID pitchStabPid;
+    protected PID rollStabPid;
+    protected PID yawStabPid;
+    protected float yaw = 0;
+    public PID altitudeStabPid;
 
     private DroneMotors dm;
     private DroneSensors ds;
 
     void Start()
     {
-        pitch = new PID(0.02f, 0.0001f, 0.05f);
-        yaw = new PID(0.02f, 0.0001f, 0.05f);
-        roll = new PID(0.02f, 0.0001f, 0.05f);
+        pitchRatePid = new PID(0.02f, 0.0001f, 0.2f);
+        rollRatePid = new PID(0.02f, 0.0001f, 0.2f);
+        yawRatePid = new PID(0.02f, 0.0001f, 0.2f);
+
+        pitchStabPid = new PID(0.05f, 0.00005f, 0.2f);
+        rollStabPid = new PID(0.05f, 0.00005f, 0.2f);
+        yawStabPid = new PID(0.05f, 0.0002f, 0.2f);
+        altitudeStabPid = new PID(0.1f, 0.0f, 5.0f);
 
         dm = GetComponent<DroneMotors>();
         ds = GetComponent<DroneSensors>();
@@ -35,28 +46,37 @@ public class DroneController : MonoBehaviour
             return;
         }
 
-        float pitchChange = axisPitch;
-        float yawChange = axisYaw;
-        float rollChange = axisRoll;
-        float throttleChange = axisThrottle;
+        float pitchInput = axisPitch;
+        float rollInput = axisRoll;
+        float yawInput = axisYaw;
+        float throttleInput = axisThrottle;
 
         if (acrobaticMode)
         {
-            pitchChange *= 1.5f;
-            yawChange *= 1.5f;
-            rollChange *= 1.5f;
-            throttleChange *= 0.01f;
+            pitchInput *= 1.5f;
+            rollInput *= 1.5f;
+            yawInput *= 1.5f;
+            throttleInput *= 0.01f;
+            pitchStabPid.reset();
+            rollStabPid.reset();
+            yawStabPid.reset();
+            yaw = ds.yaw;
+            altitudeStabPid.reset();
         }
         else
         {
-            // todo
+            pitchInput = pitchStabPid.update(pitchInput * 60, ds.pitch);
+            rollInput = rollStabPid.update(rollInput * 60, ds.roll);
+            yaw += yawInput * 1.5f;
+            yawInput = yawStabPid.update(yaw, ds.yaw);
+            throttleInput = altitudeStabPid.update(throttleInput, ds.altitudeRate);
         }
 
-        float pitchResponse = pitch.update(pitchChange, ds.pitchRate);
-        float yawResponse = yaw.update(yawChange, ds.yawRate);
-        float rollResponse = roll.update(rollChange, ds.rollRate);
+        float pitchResponse = pitchRatePid.update(pitchInput, ds.pitchRate);
+        float rollResponse = rollRatePid.update(rollInput, ds.rollRate);
+        float yawResponse = yawRatePid.update(yawInput, ds.yawRate);
 
-        throttle += throttleChange;
+        throttle += throttleInput;
         throttle = Mathf.Clamp01(throttle);
 
         dm.throttle[0] = throttle - rollResponse - pitchResponse - yawResponse;
@@ -67,9 +87,14 @@ public class DroneController : MonoBehaviour
 
     public void reset()
     {
-        pitch.reset();
-        yaw.reset();
-        roll.reset();
+        pitchRatePid.reset();
+        rollRatePid.reset();
+        yawRatePid.reset();
+        pitchStabPid.reset();
+        rollStabPid.reset();
+        yawStabPid.reset();
+        yaw = ds.yaw;
+        altitudeStabPid.reset();
         throttle = 0;
         for (int i = 0; i < 4; i++)
             dm.throttle[i] = 0;

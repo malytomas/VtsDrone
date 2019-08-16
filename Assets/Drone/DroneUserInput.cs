@@ -44,17 +44,19 @@ public class DroneUserInput : MonoBehaviour
             return;
         }
 
-        dc.axisRoll = -Input.GetAxis("AD");
-        dc.axisPitch = Input.GetAxis("SW");
         if (dc.acrobaticMode)
         {
-            dc.axisYaw = Input.GetAxis("QE");
-            dc.axisThrottle = Input.GetAxis("OP");
+            dc.axisPitch = Input.GetAxis("AcroPitch");
+            dc.axisRoll = Input.GetAxis("AcroRoll");
+            dc.axisYaw = Input.GetAxis("AcroYaw");
+            dc.axisThrottle = Input.GetAxis("AcroThrottle");
         }
         else
         {
-            dc.axisYaw = Input.GetAxis("OP");
-            dc.axisThrottle = Input.GetAxis("QE");
+            dc.axisPitch = Input.GetAxis("Pitch");
+            dc.axisRoll = Input.GetAxis("Roll");
+            dc.axisYaw = Input.GetAxis("Yaw");
+            dc.axisThrottle = Input.GetAxis("Altitude");
         }
     }
 }

@@ -3,8 +3,8 @@ using UnityEngine;
 public class DroneMotors : MonoBehaviour
 {
     public float[] throttle = new float[4]; // FL, FR, RL, RR
-    public float forcePerThrottle = 20;
-    public float torquePerThrottle = 20;
+    public float forcePerThrottle = 10;
+    public float torquePerThrottle = 10;
     public float rotationsPerThrottle = 1000;
 
     private float[] throttleAcc = new float[4]; // FL, FR, RL, RR
