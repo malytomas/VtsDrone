@@ -20,6 +20,33 @@ public class DroneSensors : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    static void ProgressiveCorrection(ref float accumulated, float sensor)
+    {
+        // when the drone is upside-down, the euler angles converted from quaternion might have swapped axes
+        //   therefore we only do the corrections when the readings and the accumulated values are close enough
+        sensor = (sensor + 360) % 360;
+        float a = accumulated;
+        while (a < 0)
+            a += 360;
+        a = a % 360;
+        float d = sensor - a;
+        if (d < -180)
+            d += 360;
+        if (d > 180)
+            d -= 360;
+        if (Mathf.Abs(d) < 30)
+            accumulated += d * 0.1f;
+    }
+
+    void ProgressiveCorrection()
+    {
+        // integrating angles from the rotation rates will slowly accumulate error that needs to be corrected
+        Vector3 ea = transform.rotation.eulerAngles;
+        ProgressiveCorrection(ref pitch, ea[0]);
+        ProgressiveCorrection(ref roll, ea[2]);
+        ProgressiveCorrection(ref yaw, ea[1]);
+    }
+
     void FixedUpdate()
     {
         Vector3 ea = rigidbody.angularVelocity * 180 / Mathf.PI * Time.fixedDeltaTime;
@@ -33,6 +60,7 @@ public class DroneSensors : MonoBehaviour
         altitudeLast = altitude;
         altitude = transform.position.y;
         altitudeRate = altitude - altitudeLast;
+        ProgressiveCorrection();
     }
 
     public void hardReset()

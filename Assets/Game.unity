@@ -443,16 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 420934775}
-  pivotOffset: {x: 0, y: 0.2, z: 0}
-  minDistance: 1
-  maxDistance: 10
-  distance: 5
-  cameraSize: 1
-  minPitch: 0
-  maxPitch: 90
-  pitch: 10
-  yaw: 0
-  cameraMouseSensitivity: 8
 --- !u!1 &245250405
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +603,7 @@ MonoBehaviour:
   - 0
   forcePerThrottle: 10
   torquePerThrottle: 10
-  rotationsPerThrottle: 1000
+  rotationsPerThrottle: 500
 --- !u!114 &420934783
 MonoBehaviour:
   m_ObjectHideFlags: 0
