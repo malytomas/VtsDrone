@@ -13,6 +13,10 @@ ModelImporter:
     100014: rotor_fr
     100016: rotor_rl
     100018: rotor_rr
+    100020: labels
+    100022: diode_green
+    100024: diode_red
+    100026: diode_yellow
     400000: body
     400002: //RootNode
     400004: Empty
@@ -23,6 +27,10 @@ ModelImporter:
     400014: rotor_fr
     400016: rotor_rl
     400018: rotor_rr
+    400020: labels
+    400022: diode_green
+    400024: diode_red
+    400026: diode_yellow
     2100000: unnamed
     2100002: rotor
     2100004: body
@@ -36,6 +44,9 @@ ModelImporter:
     2100020: light__logo-melown-boundless_png
     2100022: lenses__logo-melown-boundless_png
     2100024: labels__logo-melown-boundless_png
+    2100026: diode_red
+    2100028: diode_yellow
+    2100030: diode_green
     2300000: body
     2300002: rotor-prototype
     2300004: body_rl
@@ -44,6 +55,10 @@ ModelImporter:
     2300010: rotor_fr
     2300012: rotor_rl
     2300014: rotor_rr
+    2300016: labels
+    2300018: diode_green
+    2300020: diode_red
+    2300022: diode_yellow
     3300000: body
     3300002: rotor-prototype
     3300004: body_rl
@@ -52,6 +67,10 @@ ModelImporter:
     3300010: rotor_fr
     3300012: rotor_rl
     3300014: rotor_rr
+    3300016: labels
+    3300018: diode_green
+    3300020: diode_red
+    3300022: diode_yellow
     4300000: rotor-prototype
     4300002: body
     4300004: rotor_fr
@@ -60,6 +79,10 @@ ModelImporter:
     4300010: body_rr
     4300012: rotor_rl
     4300014: rotor_rr
+    4300016: labels
+    4300018: diode_green
+    4300020: diode_yellow
+    4300022: diode_red
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

@@ -22,6 +22,9 @@ public class DroneController : MonoBehaviour
 
     private DroneMotors dm;
     private DroneSensors ds;
+    private Light diodeRed;
+    private Light diodeYellow;
+    private Light diodeGreen;
 
     void Start()
     {
@@ -36,10 +39,17 @@ public class DroneController : MonoBehaviour
 
         dm = GetComponent<DroneMotors>();
         ds = GetComponent<DroneSensors>();
+        diodeRed = transform.Find("drone/diode_red").GetComponent<Light>();
+        diodeYellow = transform.Find("drone/diode_yellow").GetComponent<Light>();
+        diodeGreen = transform.Find("drone/diode_green").GetComponent<Light>();
     }
 
     void FixedUpdate()
     {
+        diodeRed.enabled = !armed;
+        diodeYellow.enabled = armed && acrobaticMode;
+        diodeGreen.enabled = armed && !acrobaticMode;
+
         if (!armed)
         {
             reset();
@@ -65,8 +75,8 @@ public class DroneController : MonoBehaviour
         }
         else
         {
-            pitchInput = pitchStabPid.update(pitchInput * 60, ds.pitch);
-            rollInput = rollStabPid.update(rollInput * 60, ds.roll);
+            pitchInput = pitchStabPid.update(pitchInput * 45, ds.pitch);
+            rollInput = rollStabPid.update(rollInput * 45, ds.roll);
             yaw += yawInput * 1.5f;
             yawInput = yawStabPid.update(yaw, ds.yaw);
             throttleInput = altitudeStabPid.update(throttleInput, ds.altitudeRate);

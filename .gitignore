@@ -35,5 +35,7 @@ sysinfo.txt
 *.unitypackage
 crashlytics-build.properties
 
-
+/[Aa]ssets/**/*.blend*
+/[Aa]ssets/**/!*.blend
+/[Aa]ssets/**/!*.blend.*
 /[Aa]ssets/[Vv]ts*
