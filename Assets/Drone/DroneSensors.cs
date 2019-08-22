@@ -4,15 +4,14 @@ public class DroneSensors : MonoBehaviour
 {
     // degrees
     public float pitch = 0;
-    public float yaw = 0;
-    public float roll = 0;
-    public float altitude = 0;
     public float pitchRate = 0;
+    public float yaw = 0;
     public float yawRate = 0;
+    public float roll = 0;
     public float rollRate = 0;
+    public float altitude = 0;
     public float altitudeRate = 0;
 
-    private float altitudeLast = 0;
     new private Rigidbody rigidbody;
 
     void Start()
@@ -57,9 +56,8 @@ public class DroneSensors : MonoBehaviour
         pitch += pitchRate;
         yaw += yawRate;
         roll += rollRate;
-        altitudeLast = altitude;
         altitude = transform.position.y;
-        altitudeRate = altitude - altitudeLast;
+        altitudeRate = rigidbody.velocity.y;
         ProgressiveCorrection();
     }
 
@@ -73,6 +71,5 @@ public class DroneSensors : MonoBehaviour
         yawRate = 0;
         rollRate = 0;
         altitudeRate = 0;
-        altitudeLast = 0;
     }
 }

@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject targetFollow;
+    public GameObject targetFirst;
+    public bool firstPerson = false;
 
     private float y;
 
@@ -11,7 +13,7 @@ public class FollowingCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        float t = target.transform.rotation.eulerAngles.y;
+        float t = targetFollow.transform.rotation.eulerAngles.y;
         y = transform.rotation.eulerAngles.y;
         float d = t - y;
         if (d > 180)
@@ -23,11 +25,18 @@ public class FollowingCamera : MonoBehaviour
 
     void Update()
     {
-        transform.rotation = Quaternion.Euler(25, y, 0);
-        transform.position = target.transform.position + transform.rotation * new Vector3(0, 0, -5);
-
         if (Input.GetKeyDown(KeyCode.C))
+            firstPerson = !firstPerson;
+
+        if (firstPerson)
         {
+            transform.rotation = targetFirst.transform.rotation;
+            transform.position = targetFirst.transform.position;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(25, y, 0);
+            transform.position = targetFollow.transform.position + transform.rotation * new Vector3(0, 0, -5);
         }
     }
 }
