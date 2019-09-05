@@ -40,9 +40,9 @@ public class DroneController : MonoBehaviour
 
         dm = GetComponent<DroneMotors>();
         ds = GetComponent<DroneSensors>();
-        diodeRed = transform.Find("drone/diode_red").GetComponent<Light>();
-        diodeYellow = transform.Find("drone/diode_yellow").GetComponent<Light>();
-        diodeGreen = transform.Find("drone/diode_green").GetComponent<Light>();
+        diodeRed = transform.Find("diode_red").GetComponent<Light>();
+        diodeYellow = transform.Find("diode_yellow").GetComponent<Light>();
+        diodeGreen = transform.Find("diode_green").GetComponent<Light>();
     }
 
     void FixedUpdate()

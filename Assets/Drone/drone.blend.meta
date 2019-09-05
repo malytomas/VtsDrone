@@ -83,9 +83,73 @@ ModelImporter:
     4300018: diode_green
     4300020: diode_yellow
     4300022: diode_red
+    6400000: body
+    6400002: diode_green
+    6400004: diode_red
+    6400006: diode_yellow
+    6400008: labels
+    6400010: rotor_fl
+    6400012: rotor_fr
+    6400014: rotor_rl
+    6400016: rotor_rr
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chasis__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 142b55a15654e67498a74fe0828ae8b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cover__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 9b537ea098bd519409b6d1f0643a52ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: diode_green
+    second: {fileID: 2100000, guid: 0ab3c64f0b79eae4db8929521e8553d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: diode_red
+    second: {fileID: 2100000, guid: 7d62aa6a1195ae54ebdb884230c88214, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: diode_yellow
+    second: {fileID: 2100000, guid: 1175bbbf8a186b24199b6d8c70acfa5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: labels__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 91c0441b068500f4bb87c33634ca3804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lenses__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 91a220c8bddab2b45a8b2de5014c9177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 57b6febfcd6776544bfd6a3e9bb99685, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: motor-cap__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: e25ec8dcf8194af4681a8f3a54133465, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: motor__logo-melown-boundless_png
+    second: {fileID: 2100000, guid: 581d202f09e2cf848be49513ac8408db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rotor
+    second: {fileID: 2100000, guid: 653add5bf2304f54dbf9c7251b2563f0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -116,13 +180,14 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -135,7 +200,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
@@ -143,7 +208,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -157,12 +225,11 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
