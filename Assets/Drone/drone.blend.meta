@@ -17,6 +17,7 @@ ModelImporter:
     100022: diode_green
     100024: diode_red
     100026: diode_yellow
+    100028: rotor-disk
     400000: body
     400002: //RootNode
     400004: Empty
@@ -31,6 +32,7 @@ ModelImporter:
     400022: diode_green
     400024: diode_red
     400026: diode_yellow
+    400028: rotor-disk
     2100000: unnamed
     2100002: rotor
     2100004: body
@@ -47,6 +49,8 @@ ModelImporter:
     2100026: diode_red
     2100028: diode_yellow
     2100030: diode_green
+    2100032: rotor__fast-spinning-rotor
+    2100034: rotor-fast-spin__fast-spinning-rotor
     2300000: body
     2300002: rotor-prototype
     2300004: body_rl
@@ -59,6 +63,7 @@ ModelImporter:
     2300018: diode_green
     2300020: diode_red
     2300022: diode_yellow
+    2300024: rotor-disk
     3300000: body
     3300002: rotor-prototype
     3300004: body_rl
@@ -71,6 +76,7 @@ ModelImporter:
     3300018: diode_green
     3300020: diode_red
     3300022: diode_yellow
+    3300024: rotor-disk
     4300000: rotor-prototype
     4300002: body
     4300004: rotor_fr
@@ -83,6 +89,7 @@ ModelImporter:
     4300018: diode_green
     4300020: diode_yellow
     4300022: diode_red
+    4300024: rotor-disk
     6400000: body
     6400002: diode_green
     6400004: diode_red
@@ -150,6 +157,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: rotor
     second: {fileID: 2100000, guid: 653add5bf2304f54dbf9c7251b2563f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rotor-fast-spin__fast-spinning-rotor
+    second: {fileID: 2100000, guid: ee00fae42d65fe042b3496c94013e490, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
