@@ -8,9 +8,6 @@ public class FollowingCamera : MonoBehaviour
 
     private float y;
 
-    private void Start()
-    {}
-
     void FixedUpdate()
     {
         float t = targetFollow.transform.rotation.eulerAngles.y;

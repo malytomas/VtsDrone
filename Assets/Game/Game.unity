@@ -621,6 +621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hoop (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5168768445246444056, guid: d51273b1e724f7d4c8a20e2abd89a935,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7781437920259569140, guid: d51273b1e724f7d4c8a20e2abd89a935,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -704,6 +709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hoop (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168768445246444056, guid: d51273b1e724f7d4c8a20e2abd89a935,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781437920259569140, guid: d51273b1e724f7d4c8a20e2abd89a935,
         type: 3}
@@ -859,6 +869,7 @@ Transform:
   - {fileID: 184710549}
   - {fileID: 1907479416}
   - {fileID: 1221039700}
+  - {fileID: 560359224}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1229,6 +1240,70 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &560359223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560359224}
+  - component: {fileID: 560359225}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560359224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560359223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 420934776}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!215 &560359225
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560359223}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 1
+  m_RefreshMode: 1
+  m_TimeSlicingMode: 1
+  m_Resolution: 256
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 1, y: 1, z: 1}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 1
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1 &565939278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600629570}
   - component: {fileID: 600629569}
+  - component: {fileID: 600629571}
   - component: {fileID: 600629568}
   m_Layer: 0
   m_Name: Planet
@@ -1401,13 +1477,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 600629567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3aa6ece2ffcce4a9b1d78425a5dce5, type: 3}
+  m_Script: {fileID: 11500000, guid: b9eaf9c3552c9244cb887af871f4a127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 5.474961
-  y: 51.438408
-  z: 72
-  singleUse: 1
 --- !u!114 &600629569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,6 +1511,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600629571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600629567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e936c31e08049c4da9858b417cd8088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &648077211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,6 +2327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hoop (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168768445246444056, guid: d51273b1e724f7d4c8a20e2abd89a935,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7781437920259569140, guid: d51273b1e724f7d4c8a20e2abd89a935,
         type: 3}
